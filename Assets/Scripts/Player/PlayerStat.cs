@@ -52,8 +52,6 @@ public class PlayerStat : MonoBehaviour
                         Damage += plusStat.EffectValue;
                         break;
                 }
-                Debug.Log("Effect Type: " + plusStat.EffectTypes[plusStat.EffectTypeIndex] + ", Value: " + plusStat.EffectValue);
-                Debug.Log("New Health: " + Health + ", New FireRate: " + FireRate + ", New Damage: " + Damage);
                 Destroy(collision.gameObject); // Hủy PlusStat sau khi áp dụng
             }
         }

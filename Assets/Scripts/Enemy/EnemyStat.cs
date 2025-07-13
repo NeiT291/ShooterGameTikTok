@@ -26,6 +26,7 @@ public class EnemyStat : MonoBehaviour
             }
             if (Health <= 0)
             {
+                Score.Instance.AddScore(10); // Thêm điểm khi kẻ địch bị tiêu diệt
                 Destroy(gameObject); // Hủy đối tượng khi máu bằng 0
             }
         }
