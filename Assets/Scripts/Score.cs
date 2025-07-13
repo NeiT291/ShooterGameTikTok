@@ -54,4 +54,9 @@ public class Score : MonoBehaviour
     {
         scoreText.text = "Score: " + score;
     }
+    public void ResetScore()
+    {
+        score = 0;
+        UpdateScoreText();
+    }
 }

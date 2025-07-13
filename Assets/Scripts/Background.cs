@@ -11,12 +11,6 @@ public class Background : MonoBehaviour
         // Ensure the background is always behind other objects
         transform.position = new Vector3(transform.position.x, transform.position.y, 10f);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     void FitBackgroundToScreen()
     {
         SpriteRenderer sr = GetComponentInChildren<SpriteRenderer>();

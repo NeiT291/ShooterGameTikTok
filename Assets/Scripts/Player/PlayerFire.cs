@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerFire : MonoBehaviour
 {
+    [SerializeField] private AudioManager audioManager;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float fireRate;
@@ -12,6 +13,7 @@ public class PlayerFire : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioManager = GameObject.FindGameObjectWithTag("audio").GetComponent<AudioManager>();
         playerStat = GetComponent<PlayerStat>();
     }
 
@@ -31,6 +33,7 @@ public class PlayerFire : MonoBehaviour
     }
     private void Fire()
     {
+        audioManager.PlayVFX(audioManager.shootClip); // Phát âm thanh bắn
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation, transform);
     }
 }

@@ -36,8 +36,4 @@ public class EnemyStat : MonoBehaviour
 
         }
     }
-    void Update()
-    {
-
-    }
 }

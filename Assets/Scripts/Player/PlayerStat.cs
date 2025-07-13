@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerStat : MonoBehaviour
 {
+    private AudioManager audioManager;
+    [SerializeField] private GameObject gameOver;
     [SerializeField] private float health = 100f;
     [SerializeField] private float fireRate = 0.5f;
     [SerializeField] private float damage = 10f;
@@ -15,6 +17,7 @@ public class PlayerStat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioManager = GameObject.FindGameObjectWithTag("audio").GetComponent<AudioManager>();
         healthText.text = Health.ToString("F0");
     }
 
@@ -26,10 +29,12 @@ public class PlayerStat : MonoBehaviour
             EnemyStat enemy = collision.GetComponent<EnemyStat>();
             if (enemy != null)
             {
+                audioManager.PlayVFX(audioManager.playerHitClip); // Phát âm thanh khi bị trúng đạn
                 Health -= enemy.Health; // Giảm máu dựa trên máu của kẻ địch
                 healthText.text = Health.ToString("F0");
                 if (Health <= 0)
                 {
+                    gameOver.SetActive(true); // Hiển thị Game Over
                     Destroy(gameObject); // Hủy đối tượng khi máu bằng 0
                 }
             }

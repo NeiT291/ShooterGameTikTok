@@ -8,6 +8,8 @@ TagManager:
   - player
   - enemy
   - plusStat
+  - gameOver
+  - audio
   layers:
   - Default
   - TransparentFX
